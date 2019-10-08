@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function commonSequence(stringA, stringB) {
+      let letterListA = {}
+      let letterListB = {}
+      let consecutiveLettersCount = 1;
+      let maxConsecutiveLettersCount = 1;
+      let maxConsecutiveLetters = 1;
+      let word;
+      let regex;
+      for (let letterIndex = 0; letterIndex <= stringA.length - 1; letterIndex++) {
+        if (!letterListA[stringA[letterIndex]]) {
+          letterListA[stringA[letterIndex]] = [letterIndex]
+        } else {
+          letterListA[stringA[letterIndex]].push(letterIndex)
+        }
+      }
+      for (let letterIndex = 0; letterIndex <= stringB.length - 1; letterIndex++) {
+        if (!letterListB[stringB[letterIndex]]) {
+          letterListB[stringB[letterIndex]] = [letterIndex]
+        } else {
+          letterListB[stringB[letterIndex]].push(letterIndex)
+        }
+      }
+
+      letterListAArray = Object.entries(letterListA)
+      for (let letterI = 0; letterI < letterListAArray.length; letterI++) {
+        if (letterListB[letterListAArray[letterI]
+            [0]]) { // if letter exists both in strA and strB
+          console.log(letterListAArray[letterI]
+            [0]);
+          word = letterListAArray[letterI]
+            [0];
+          regex = new RegExp(letterListAArray[letterI]
+            [0], "g");
+          for (let i = 0; i < letterListAArray[letterI]
+            [1].length; i++) {
+            let nextLetter = 1;
+            consecutiveLettersCount = 1
+            while (regex.test(stringB) || nextLetter === 10) {
+              if (consecutiveLettersCount > maxConsecutiveLettersCount) {
+                maxConsecutiveLettersCount = consecutiveLettersCount;
+                maxConsecutiveLetters = word;
+              }
+              word += stringA[letterListAArray[letterI]
+                [1][i] + nextLetter];
+              regex = new RegExp(word, "g");
+              consecutiveLettersCount++
+              nextLetter++
+            }
+            letterI += consecutiveLettersCount; // jump in the loop
+          }
+        }
+      }
+
+      console.log(maxConsecutiveLetters)
+    }
+
+
+
+    const s1 = "ABBDKEEHDKSW"
+    const s2 = "ODPEDKEEOFOPW"
+    commonSequence(s1, s2)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
