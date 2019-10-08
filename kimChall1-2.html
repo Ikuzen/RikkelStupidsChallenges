@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
     function commonSequence(stringA, stringB) {
       let letterListA = {}
       let letterListB = {}
@@ -32,18 +32,15 @@
 
       letterListAArray = Object.entries(letterListA)
       for (let letterI = 0; letterI < letterListAArray.length; letterI++) {
-        if (letterListB[letterListAArray[letterI]
-            [0]]) { // if letter exists both in strA and strB
-          console.log(letterListAArray[letterI]
-            [0]);
-          word = letterListAArray[letterI]
-            [0];
-          regex = new RegExp(letterListAArray[letterI]
-            [0], "g");
-          for (let i = 0; i < letterListAArray[letterI]
-            [1].length; i++) {
+        if (letterListB[letterListAArray[letterI][0]]) { // if letter exists both in strA and strB
+          word = letterListAArray[letterI][0];
+          regex = new RegExp(letterListAArray[letterI][0], "g");
+          console.log(letterListAArray[letterI][1])
+          for (let i = 0; i < letterListAArray[letterI][1].length; i++) {
+            regex = new RegExp("", "g");
             let nextLetter = 1;
             consecutiveLettersCount = 1
+            word = ""
             while (regex.test(stringB) || nextLetter === 10) {
               if (consecutiveLettersCount > maxConsecutiveLettersCount) {
                 maxConsecutiveLettersCount = consecutiveLettersCount;
@@ -55,7 +52,10 @@
               consecutiveLettersCount++
               nextLetter++
             }
-            letterI += consecutiveLettersCount; // jump in the loop
+            // letterI += consecutiveLettersCount -1; // jump in the loop
+            // if(letterI> letterListAArray.length-1){
+            //   letterI = letterListAArray.length-1;
+            // }
           }
         }
       }
@@ -65,14 +65,17 @@
 
 
 
-    const s1 = "ABBDKEEHDKSW"
-    const s2 = "ODPEDKEEOFOPW"
+    // const s1 = "ABBDKEEHDKSW1111"
+    // const s2 = "ODPEDKEEOFOP1W"
+    UFVRVOVQFPYURNGOSVRA
+    const s1 = 'KPHPNCEMBZWWQVXOLRQGVDZNCOSSGLGTITQOEIZUASBADKNPUPSXGBINICNDYZPWJEWIKJPWGXQJNMPEBIWSKFLCFRMELDHHDKWLSKCRRPGSFVEZJTGXHDZOOKGQNSAFSTRMSKJZKVHYLWTZHMBXMYKQQOKZOBVCXHKAIODEMDKTSAHJTCIVMAKTJYCBWQZWAMSUEDQUFVRVOVQFPYURNGOSVRA'
+const s2 = 'UFVRVOVQFPYURNGOSVRAUPYWEKAUOIAOBBZNRTGAGDIRKSWWUAVASKLLBVWRCQLVBZGQTJRDAMVDQVXLRDUSPMOXQPMNBEQZRSAEMPPNWNLGWYEEYDFSFIMXVLTRAIMGQNPDKARKQVDJKNMJCKCUZXXIWNLRTSXCGWLHMPPLWZUYIFJTZPNQXNKJESSBAGBTZPRCZFV'
     commonSequence(s1, s2)
   </script>
-</head>
+  </head>
 
-<body>
+  <body>
 
-</body>
+  </body>
 
 </html>
