@@ -3,7 +3,7 @@ public class BiggerNumber {
         System.out.println(findBiggestNumber(-529,50));
     }
 
-    public static String findBiggestNumber(int baseNum, int added){
+    public static int findBiggestNumber(int baseNum, int added){
         boolean isNegative = baseNum < 0 ? true : false;
         if(isNegative){
             baseNum = -baseNum;
@@ -26,6 +26,6 @@ public class BiggerNumber {
             }
             numSB.delete(i, i +(""+added).length());
         }
-        return isNegative ? "-"+lowestNum : lowestNum;
+        return isNegative ? Integer.valueOf("-"+lowestNum) : Integer.valueOf(lowestNum);
     }
 }
